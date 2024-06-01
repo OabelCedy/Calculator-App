@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #333;
+            padding: 15px;
+            width: 23%;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        #result {
+            width: 88%;
+            font-size: 40px;
+            padding: 10px;
+            text-align: right;
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .num-btn, .operator-btn {
+            width: 55px;
+            height: 50px;
+            font-size: 17px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #555;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .num-btn:hover, .operator-btn:hover {
+            background-color: #777;
+        }
+
+        .operator-btn {
+            background-color: #f0ad4e;
+        }
+
+        .operator-btn:hover {
+            background-color: #e0a340;
+        }
+
+        .del-btn {
+            background-color: #AFEEEE;
+        }
+        .del-btn {
+            width: 180px;
+            height: 50px;
+            font-size: 17px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #AFEEEE;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .del-btn:hover {
+            background-color: #b81ef5;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1 style="color:rgb(116, 172, 245)">Ced's<span style="color:rgb(77, 114, 196)">Calculator</span></h1>        
+        <input type="text" id="result" readonly>
+        <div class="button-row">
+            <button class="num-btn" onclick="appendNum(7)">7</button>
+            <button class="num-btn" onclick="appendNum(8)">8</button>
+            <button class="num-btn" onclick="appendNum(9)">9</button>
+            <button class="operator-btn" onclick="divide()">/</button>
+        </div>
+        <div class="button-row">
+            <button class="num-btn" onclick="appendNum(4)">4</button>
+            <button class="num-btn" onclick="appendNum(5)">5</button>
+            <button class="num-btn" onclick="appendNum(6)">6</button>
+            <button class="operator-btn" onclick="multiply()">*</button>
+        </div>
+        <div class="button-row">
+            <button class="num-btn" onclick="appendNum(1)">1</button>
+            <button class="num-btn" onclick="appendNum(2)">2</button>
+            <button class="num-btn" onclick="appendNum(3)">3</button>
+            <button class="operator-btn" onclick="subtract()">-</button>
+        </div>
+        <div class="button-row">
+            <button class="num-btn" onclick="appendNum(0)">0</button>
+            <button class="num-btn" onclick="appendNum('.')">.</button>
+            <button class="operator-btn" onclick="calculate()">=</button>
+            <button class="operator-btn" onclick="add()">+</button>
+        </div>
+        <div class="button-row">
+            <button class="num-btn" onclick="clearinput()">C</button>
+            <button class="del-btn" onclick="deleteLastChar()">DEL</button>
+        </div>
+    </div>
+
+    <script>
+        let currentInput = "";
+        let currentOperator = "";
+
+        function appendNum(number) {
+            currentInput += number;
+            document.getElementById("result").value = currentInput;
+        }
+
+        function add() {
+            currentOperator = "+";
+            currentInput += currentOperator;
+            document.a("result").value = currentInput;
+        }
+
+        function subtract() {
+            currentOperator = "-";
+            currentInput += currentOperator;
+            document.getElementById("result").value = currentInput;
+        }
+
+        function divide() {
+            currentOperator = "/";
+            currentInput += currentOperator;
+            document.getElementById("result").value = currentInput;
+        }
+
+        function multiply() {
+            currentOperator = "*";
+            currentInput += currentOperator;
+            document.getElementById("result").value = currentInput;
+        }
+
+        function calculate() {
+            const result = eval(currentInput);
+            document.getElementById("result").value = result;
+            currentOperator = "";
+            currentInput = result.toString();
+        }
+
+        function clearinput() {
+            currentOperator = "";
+            currentInput = "";
+            document.getElementById("result").value = "";
+        }
+
+        function deleteLastChar() {
+            if (currentInput.length > 0) {
+                currentInput = currentInput.substring(0, currentInput.length -5);
+                document.getElementById("result").value = currentInput;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
