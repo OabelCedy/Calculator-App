@@ -3,14 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Calculator</title>
+    <title>Calculator App</title>
     <style>
-        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #333;
+            padding: 15px;
+            width: 23%;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        #result {
+            width: 88%;
+            font-size: 40px;
+            padding: 10px;
+            text-align: right;
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .num-btn, .operator-btn {
+            width: 55px;
+            height: 50px;
+            font-size: 17px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #555;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .num-btn:hover, .operator-btn:hover {
+            background-color: #777;
+        }
+
+        .operator-btn {
+            background-color: #f0ad4e;
+        }
+
+        .operator-btn:hover {
+            background-color: #e0a340;
+        }
+
+        .del-btn {
+            background-color: #AFEEEE;
+        }
+        .del-btn {
+            width: 180px;
+            height: 50px;
+            font-size: 17px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #AFEEEE;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .del-btn:hover {
+            background-color: #b81ef5;
+        }
     </style>
 </head>
 <body>
     <div class="calculator">
-        <h1>Responsive Calculator</h1>
+        <h1 style="color:rgb(116, 172, 245)">Ced's<span style="color:rgb(77, 114, 196)">Calculator</span></h1>        
         <input type="text" id="result" readonly>
         <div class="button-row">
             <button class="num-btn" onclick="appendNum(7)">7</button>
@@ -54,7 +126,7 @@
         function add() {
             currentOperator = "+";
             currentInput += currentOperator;
-            document.getElementById("result").value = currentInput;
+            document.a("result").value = currentInput;
         }
 
         function subtract() {
@@ -97,4 +169,6 @@
     </script>
 </body>
 </html>
- 
+
+
+
